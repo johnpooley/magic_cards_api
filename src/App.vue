@@ -1,7 +1,12 @@
 <template lang="html">
   <div class="mainPage">
     <p>hello magic players</p>
+
+    <card-detail :card="selectedCard"/>
+
     <p>choose a creature type</p>
+
+    <card-list-item />
     <select-box />
 
     <card-list :cards="cards"/>
@@ -18,12 +23,15 @@ import faveCards from './components/faveCards.vue'
 import listOfCards from './components/listOfCards.vue'
 import selectBox from './components/selectBox.vue'
 import selectedCard from './components/selectedCard.vue'
+import cardDetails from './components/cardDetails.vue'
 
 export default {
   name: 'app',
   components: {
     "select-box": selectBox,
-    "card-list":listOfCards
+    "card-list":listOfCards,
+    "card-list-item":selectedCard,
+    "card-detail":cardDetails
 
   },
   data(){
@@ -31,7 +39,8 @@ export default {
       cards:[],
       cardNames:[],
       cardArray:[],
-      cardType:''
+      cardType:'',
+      selectedCard:[]
     }
   },
   methods: {
@@ -57,6 +66,7 @@ export default {
 
   mounted(){
     eventBus.$on('selectedCreature', (creature) => this.fetchData(creature))
+    eventBus.$on('card-selected', (card) => this.selectedCard = card)
 
   },
 

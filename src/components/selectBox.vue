@@ -7,6 +7,8 @@
       <option value="jellyfish">Jellyfish</option>
       <option value="sheep">Sheep</option>
       <option value="pirate">Pirate</option>
+      <option value="dinosaur">Dinosaur</option>
+
     </select>
 
   </div>

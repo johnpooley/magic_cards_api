@@ -1,5 +1,5 @@
 <template lang="html">
-  <option v-on:click="showDetails">{{card.name}} </option>
+  <option v-on:click="showDetails">{{card.name}}, from the set {{card.set}} </option>
 
 
 </template>
